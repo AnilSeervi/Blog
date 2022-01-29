@@ -1,0 +1,24 @@
+svg {
+  margin-left: 4px;
+  @media (prefers-reduced-motion: no-preference) {
+    .steam1 {
+      animation: wave 1.2s ease-in-out infinite alternate;
+    }
+    .steam2 {
+      animation: wave 1.2s ease-in-out infinite alternate;
+      animation-delay: 200ms;
+    }
+    .steam3 {
+      animation: wave 1.2s ease-in-out infinite alternate;
+      animation-delay: 400ms;
+    }
+    @keyframes wave {
+      from {
+        stroke: var(--color-text);
+      }
+      to {
+        stroke: var(--bg-clr);
+      }
+    }
+  }
+}
