@@ -9,10 +9,6 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
-  React.useEffect(() => {
-
-  }, [])
-
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -26,7 +22,6 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
-
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -50,8 +45,10 @@ const BlogIndex = ({ data, location }) => {
                         <span itemProp="headline">{title}</span>
                       </Link>
                     </h2>
-                    <span style={{ display: 'flex' }}>
-                      <small>{post.frontmatter.date} &#8226; {timeToRead} min read</small>
+                    <span style={{ display: "flex" }}>
+                      <small>
+                        {post.frontmatter.date} &#8226; {timeToRead} min read
+                      </small>
                       <TimeToRead timeToRead={timeToRead} />
                     </span>
                   </header>
@@ -71,11 +68,25 @@ const BlogIndex = ({ data, location }) => {
       </main>
       <footer className="main-footer">
         <div className="social-links">
-          <a href="https://twitter.com/linASeervi/" target="_blank" rel="noopener noreferrer">twitter</a>
+          <a
+            href="https://twitter.com/linASeervi/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            twitter
+          </a>
           &bull;
-          <a href="https://github.com/AnilSeervi/" target="_blank" rel="noopener noreferrer">github</a>
+          <a
+            href="https://github.com/AnilSeervi/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github
+          </a>
         </div>
-        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">rss</a>
+        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
+          rss
+        </a>
       </footer>
     </Layout>
   )

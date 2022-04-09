@@ -91,9 +91,8 @@ Here's how you can use the `forEach()` to push objects containing `firstName` an
 const names = [{ firstName: "Anil", lastName: "Seervi" }]
 
 fullNames.forEach(n => {
-  const obj = ({}[ // empty object for initialization
-    (obj.firstName, obj.lastName)
-  ] = n.split` `) // split at spaces and destructure initialize
+  const obj = {} // empty object for initialization
+  [obj.firstName, obj.lastName] = n.split` ` // split at spaces and destructure initialize
   names.push(obj) // push the object to names array
 })
 
@@ -169,7 +168,7 @@ That was so easy right. All we need to do is to call the `map()` method on our `
 
 ---
 
-Now let's look at another example where we'll convert an array of objects with `firstName` and `lastName` properties that we got as our output in the [`forEach()`](<#Array.forEach()>) and create another array which will consist of only full names. Kinda the reverse of what we did in `forEach()` example.
+Now let's look at another example where we'll convert an array of objects with `firstName` and `lastName` properties that we got as our output in the `forEach()` and create another array which will consist of only full names. Kinda the reverse of what we did in `forEach()` example.
 
 ```js{11}
 // array of objects with firstName and lastName

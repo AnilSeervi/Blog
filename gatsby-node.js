@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
-            wordCount{
+            wordCount {
               words
             }
           }
@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
-          timeToRead: Math.round(post.wordCount.words / 150) || 1
+          timeToRead: Math.round(post.wordCount.words / 150) || 1,
         },
       })
     })
@@ -71,7 +71,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value: `/blog${relativePath}`
+      value: `/blog${relativePath}`,
     })
   }
 }

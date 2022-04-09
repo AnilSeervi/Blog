@@ -51,8 +51,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-external-links`,
             options: {
-              target: '_blank',
-            }
+              target: `_blank`,
+            },
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,

@@ -13,24 +13,24 @@ import { useStaticQuery, graphql } from "gatsby"
 const Seo = ({ description, lang, meta, title, ogThumb, path = `` }) => {
   const { site, ogImageDefault } = useStaticQuery(
     graphql`
-    query {
-  site {
-    siteMetadata {
-      title
-      description
-      siteUrl
-      social {
-        twitter
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            siteUrl
+            social {
+              twitter
+            }
+          }
+        }
+        ogImageDefault: file(absolutePath: { regex: "/images/og-image/" }) {
+          childImageSharp {
+            gatsbyImageData(layout: FIXED, height: 630, width: 1200)
+          }
+        }
       }
-    }
-  }
-  ogImageDefault: file(absolutePath: {regex: "/images/og-image/"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FIXED, height: 630, width: 1200)
-    }
-  }
-}
-`
+    `
   )
 
   const metaDescription = description || site.siteMetadata.description
@@ -38,9 +38,9 @@ const Seo = ({ description, lang, meta, title, ogThumb, path = `` }) => {
   const ogImage =
     ogThumb ||
     site.siteMetadata.siteUrl.concat(
-      ogImageDefault.childImageSharp.gatsbyImageData.images.fallback.src,
-    );
-  const url = site.siteMetadata.siteUrl.concat((path || ``))
+      ogImageDefault.childImageSharp.gatsbyImageData.images.fallback.src
+    )
+  const url = site.siteMetadata.siteUrl.concat(path || ``)
 
   return (
     <Helmet

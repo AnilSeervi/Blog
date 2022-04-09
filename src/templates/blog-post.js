@@ -8,22 +8,27 @@ import Seo from "../components/seo"
 import TimeToRead from "../utils/timeToRead"
 import Quotes from "../components/Quotes"
 
-const GITHUB_USERNAME = 'AnilSeervi';
-const GITHUB_REPO_NAME = 'Blog';
+const GITHUB_USERNAME = "AnilSeervi"
+const GITHUB_REPO_NAME = "Blog"
 
 const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteUrl = data.site.siteMetadata?.siteUrl
   const { previous, next } = data
-  const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/content/${post.fileAbsolutePath.slice(post.fileAbsolutePath.indexOf("blog"))}`;
+  const editUrl = `https://github.com/${GITHUB_USERNAME}/${GITHUB_REPO_NAME}/edit/master/content/${post.fileAbsolutePath.slice(
+    post.fileAbsolutePath.indexOf("blog")
+  )}`
 
   return (
     <Layout location={location} title={siteTitle}>
       <Seo
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
-        ogThumb={siteUrl.concat(post.frontmatter.ogThumb.childImageSharp.gatsbyImageData.images.fallback.src)}
+        ogThumb={siteUrl.concat(
+          post.frontmatter.ogThumb.childImageSharp.gatsbyImageData.images
+            .fallback.src
+        )}
         path={location.pathname}
       />
       <main>
@@ -34,8 +39,12 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
         >
           <header>
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date} &#8226; {pageContext.timeToRead} min read
-              <TimeToRead timeToRead={pageContext.timeToRead} style={{ marginBottom: -2, marginLeft: 8 }} />
+            <p>
+              {post.frontmatter.date} &#8226; {pageContext.timeToRead} min read
+              <TimeToRead
+                timeToRead={pageContext.timeToRead}
+                style={{ marginBottom: -2, marginLeft: 8 }}
+              />
             </p>
           </header>
           <section>
@@ -52,8 +61,7 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
         <hr />
         <Bio />
         <nav className="blog-post-nav">
-          <ul
-          >
+          <ul>
             {previous && (
               <li className="blog-post-nav__previous">
                 <Link to={previous.fields.slug} rel="prev">
@@ -101,11 +109,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         ogThumb {
-        childImageSharp {
-          gatsbyImageData(layout: FIXED, height: 630, width: 1200)
+          childImageSharp {
+            gatsbyImageData(layout: FIXED, height: 630, width: 1200)
+          }
         }
       }
-    }
       fileAbsolutePath
     }
     previous: mdx(id: { eq: $previousPostId }) {
