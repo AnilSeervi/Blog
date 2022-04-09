@@ -1,70 +1,8 @@
 /* CSS Custom Properties Definitions */
 
-:root {
-  --maxWidth-none: "none";
-  --maxWidth-xs: 20rem;
-  --maxWidth-sm: 24rem;
-  --maxWidth-md: 28rem;
-  --maxWidth-lg: 32rem;
-  --maxWidth-xl: 36rem;
-  --maxWidth-2xl: 42rem;
-  --maxWidth-3xl: 48rem;
-  --maxWidth-4xl: 56rem;
-  --maxWidth-full: "100%";
-  --maxWidth-wrapper: var(--maxWidth-2xl);
-  --spacing-px: "1px";
-  --spacing-0: 0;
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-5: 1.25rem;
-  --spacing-6: 1.5rem;
-  --spacing-8: 2rem;
-  --spacing-10: 2.5rem;
-  --spacing-12: 3rem;
-  --spacing-16: 4rem;
-  --spacing-20: 5rem;
-  --spacing-24: 6rem;
-  --spacing-32: 8rem;
-  --fontFamily-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
-    Times, serif;
-  --font-body: var(--fontFamily-serif);
-  --font-heading: var(--fontFamily-sans);
-  --fontWeight-normal: 400;
-  --fontWeight-medium: 500;
-  --fontWeight-semibold: 600;
-  --fontWeight-bold: 700;
-  --fontWeight-extrabold: 800;
-  --fontWeight-black: 900;
-  --fontSize-root: 16px;
-  --lineHeight-none: 1;
-  --lineHeight-tight: 1.1;
-  --lineHeight-normal: 1.5;
-  --lineHeight-relaxed: 1.625;
-  /* 1.200 Minor Third Type Scale */
-  --fontSize-0: 0.833rem;
-  --fontSize-1: 1rem;
-  --fontSize-2: 1.2rem;
-  --fontSize-3: 1.44rem;
-  --fontSize-4: 1.728rem;
-  --fontSize-5: 2.074rem;
-  --fontSize-6: 2.488rem;
-  --fontSize-7: 2.986rem;
-  --color-primary: hsl(272, 76%, 53%);
-  --color-text: #2e353f;
-  --color-text-light: #4f5969;
-  --color-heading: #1a202c;
-  --color-heading-black: black;
-  --color-accent: #d1dce5;
-  --bg-clr: #ffffff;
-}
+@import "./variables";
 
 /* HTML elements */
-
 *,
 :after,
 :before {
@@ -82,6 +20,8 @@ body {
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
+  background-color: var(--bg-clr);
+  transition: color 200ms ease-out 0s, background-color 200ms ease-out 0s;
 }
 
 footer {
@@ -89,9 +29,10 @@ footer {
 }
 
 hr {
-  background: var(--color-accent);
+  background: var(--hr);
   height: 1px;
   border: 0;
+  margin: 0 0 calc(var(--spacing-8) - 1px) 0;
 }
 
 /* Heading */
@@ -198,7 +139,7 @@ li > ul {
 }
 
 blockquote {
-  color: var(--color-text-light);
+  color: inherit;
   margin-left: calc(-1 * var(--spacing-6));
   margin-right: var(--spacing-8);
   padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
@@ -206,6 +147,7 @@ blockquote {
   font-size: var(--fontSize-2);
   font-style: italic;
   margin-bottom: var(--spacing-8);
+  opacity: 0.8;
 }
 
 blockquote > :last-child {
@@ -303,6 +245,9 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+  img {
+    border-radius: 100%;
+  }
 }
 
 .blog-post header h1 {
@@ -334,9 +279,51 @@ a:focus {
   }
 }
 
-.gatsby-highlight {
-  margin-bottom: var(--spacing-8);
+.main-footer {
+  padding-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  .social-links {
+    display: flex;
+    gap: 4px;
+  }
 }
+
+.nav-aside {
+  margin-top: var(--spacing-6);
+}
+
+footer {
+  padding: 0;
+  margin-top: var(--spacing-10);
+  .quote-container {
+    color: var(--color-text);
+    opacity: 0.6;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 16px;
+    .quote-icon {
+      margin-top: -1.5rem;
+      align-self: flex-start;
+      display: inline-block;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 4rem;
+    }
+    .quote-body {
+      margin: 0;
+      font-style: italic;
+    }
+    small {
+      font-family: var(--fontFamily-sans);
+    }
+  }
+}
+
+// .gatsby-highlight {
+//   margin-bottom: var(--spacing-8);
+//   background-color: #011627;
+// }
 
 /* Media queries */
 
@@ -350,3 +337,5 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+@import "./code";

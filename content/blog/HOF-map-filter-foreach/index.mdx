@@ -1,22 +1,21 @@
 ---
 title: Higher Order Array Functions forEach, map and filter
-date: "2021-05-29T22:40:32.169Z"
+date: "2021-12-11T11:27:06.000Z"
 description: How to use Higher order array funtions in JavaScript
+ogThumb: ./og-thumb.png
 ---
 
-# Higher-Order Array Functions `forEach`, `map` and `filter`
+import { Link } from "gatsby"
 
 Array methods such as `forEach()`, `map()` and `filter()` are some of the _Higher Order **Array** Functions_ that come in very handy when you have to work with data that's in an Array.
 
 In this article we'll be discussing the following Higher-Order Functions, with examples :
 
-- [`forEach()`](<#Array.forEach()>)
+- `forEach()`
 - `map()`
 - `filter()`
 
-I'll be assuming that you have a basic understanding of what _Higher-Order Functions_ are and how to work with them, **if not**, I recommend you read my previous article on it.
-
-%[https://ar.hashnode.dev/understanding-higher-order-functions-in-javascipt]
+I'll be assuming that you have a basic understanding of what _Higher-Order Functions_ are and how to work with them, **if not**, I recommend you read my <Link to="/blog/HOF-in-js">previous article</Link> on it.
 
 ---
 
@@ -46,9 +45,7 @@ Function to execute on each element. It accepts one to three arguments :
 
 The `forEach()` method doesn't return anything : `undefined`
 
-If you look at the signature of the callback function in this method, it looks similar to the `forEach()` function that I created in the previous **Higher-Order Functions** article.
-
-%[https://ar.hashnode.dev/understanding-higher-order-functions-in-javascipt]
+If you look at the signature of the callback function in this method, it looks similar to the `forEach()` function that I created in the previous <Link to="/blog/HOF-in-js">**Higher-Order Functions**</Link> article.
 
 ---
 
@@ -56,7 +53,7 @@ If you look at the signature of the callback function in this method, it looks s
 
 Let's recreate the same example now using the `Array.forEach()` method :
 
-```js
+```js{3,8}
 const numbs = [5, 9, 10, 1] // Array of numbers
 
 numbs.forEach((n, i, arr) => {
@@ -90,7 +87,7 @@ const fullNames = [
 
 Here's how you can use the `forEach()` to push objects containing `firstName` and `lastName` property to the `names` array.
 
-```js
+```js{3}
 const names = [{ firstName: "Anil", lastName: "Seervi" }]
 
 fullNames.forEach(n => {
@@ -158,7 +155,7 @@ const numbs = [5, 9, 10, 1] // our boring array of numbers
 
 The easiest way to do this will be by using the `Array.map()` method :
 
-```js
+```js{1}
 const squares = numbs.map(n => n ** 2)
 // Yes, its easy as that!!
 
@@ -174,7 +171,7 @@ That was so easy right. All we need to do is to call the `map()` method on our `
 
 Now let's look at another example where we'll convert an array of objects with `firstName` and `lastName` properties that we got as our output in the [`forEach()`](<#Array.forEach()>) and create another array which will consist of only full names. Kinda the reverse of what we did in `forEach()` example.
 
-```js
+```js{11}
 // array of objects with firstName and lastName
 const names = [
   { firstName: "Anil" },
@@ -240,7 +237,7 @@ lets pose a couple question so to `filter` our boring array.
 
 Q1. _Obtain an array of **Odd Numbers** from `numbs`_
 
-```js
+```js{1}
 const odd = numbs.filter(n => n % 2 !== 0)
 
 console.log(odd)
@@ -251,7 +248,7 @@ Within the callback, we return true only for _odd_ numbers in our array which in
 
 Q2. _Obtain an array of **Prime Numbers** from `numbs`_
 
-```js
+```js{7}
 function isPrime(numb) {
   for (let i = 2, s = Math.sqrt(numb); i <= s; i++)
     if (numb % i === 0) return !1
@@ -277,7 +274,7 @@ The API returns an Array of Objects that contain information about my public Git
 
 > The API only returns a maximum of 30 repos without any query parameters.
 
-```js
+```js{7,8}
 ;(async function jsRepos() {
   const res = await fetch(
     "https://api.github.com/users/AnilSeervi/repos?per_page=100"
@@ -304,6 +301,4 @@ After filtering the Repos, we can now grab just the `name` property of the filte
 
 I hope this article helped you understand the **Higher-Order Array Functions**(`forEach()`, `map()`, `filter()`).
 
-### Thank you for reading, let's connect!
-
-Thank you for reading my blog. Feel free to subscribe to my email newsletter for more content and, let's connect on [Twitter!](https://twitter.com/linASeervi)
+Thank you for reading my blog. Let's connect on [Twitter!](https://twitter.com/linASeervi)

@@ -3,7 +3,7 @@ import Bowl from "../components/Bowl";
 import Coffee from "../components/Coffee";
 
 
-const TimeToRead = ({ timeToRead }) => {
+const TimeToRead = ({ timeToRead, style }) => {
     const cups = Math.round(timeToRead / 5);
     if (cups > 5) {
         return (
@@ -14,7 +14,7 @@ const TimeToRead = ({ timeToRead }) => {
     } else {
         return (
             <>
-                {Array.from({ length: cups || 1 }).fill(1).map((_, index) => (<Coffee key={index} />))}
+                {Array.from({ length: cups || 1 }).fill(1).map((_, index) => (<Coffee key={index} style={style} />))}
             </>
         )
 

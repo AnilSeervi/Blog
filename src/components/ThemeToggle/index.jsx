@@ -1,41 +1,22 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
+import { setLocalTheme } from "../../utils/utils"
+import { useAppContext } from "../Context"
 import "./themeToggle.scss"
 
 const ThemeToggle = () => {
-  const themeToggleRef = useRef(null)
-  const themeToggle = () => {
-    document.body.classList.contains("light-theme")
-      ? enableDarkMode()
-      : enableLightMode()
-  }
+  const { theme, toggleTheme } = useAppContext()
 
-  function enableDarkMode() {
-    document.body.classList.remove("light-theme")
-    document.body.classList.add("dark-theme")
-    themeToggleRef.current.setAttribute("aria-label", "Switch to light theme")
+  const switchTheme = theme => {
+    const realTheme = theme === "dark" ? "light" : "dark"
+    toggleTheme(() => realTheme)
+    setLocalTheme(realTheme)
   }
-
-  function enableLightMode() {
-    document.body.classList.remove("dark-theme")
-    document.body.classList.add("light-theme")
-    themeToggleRef.current.setAttribute("aria-label", "Switch to dark theme")
-  }
-
-  function setThemePreference() {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      enableDarkMode()
-    } else enableLightMode()
-  }
-  useEffect(() => {
-    setThemePreference()
-  }, [])
 
   return (
     <button
-      ref={themeToggleRef}
       id="theme-toggle"
-      aria-label="Switch to dark theme"
-      onClick={themeToggle}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+      onClick={() => switchTheme(theme)}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

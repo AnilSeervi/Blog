@@ -20,6 +20,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            wordCount{
+              words
+            }
           }
         }
       }
@@ -52,6 +55,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          timeToRead: Math.round(post.wordCount.words / 150) || 1
         },
       })
     })

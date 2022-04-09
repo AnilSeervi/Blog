@@ -1,16 +1,15 @@
 ---
 title: Understanding Higher Order Functions in JavaScript
-date: "2021-05-30T22:40:32.169Z"
+date: "2021-12-04T15:22:02.000Z"
 description: What are Higher Order Functions? Learn with Examples.
+ogThumb: ./og-thumb.png
 ---
-
-# Higher-Order Functions in JavaScript
 
 In JavaScript, functions are _values_(**first-class citizens**). This means that they can be assigned to a variable and/or be passed as arguments and can also be returned from another function.
 
 These features or abilities open the door for various types of functions like, _First-class functions_, _Callback functions_, _Higher-order functions_, _Anonymous functions_ and more.
 
-```js
+```js{7}
 const numbs = [2, 4, 5, 7, 1]
 
 // First-class and Anonymous function
@@ -44,7 +43,7 @@ The function that is passed as an argument to the higher-order function is known
 
 Let's look at a simple example :
 
-```js
+```js{10,11,12}
 const success = s => console.log(s, ": Success") // log success message
 const error = s => console.error(s, ": Error") // log error message
 
@@ -72,7 +71,7 @@ You can notice that when we call the `notify()` function, we are passing the res
 
 Now Let's look at a simpler implementation of the `forEach()` Array method, which will perform the callback on each element of the array we pass.
 
-```js
+```js{11,12}
 const numbs = [5, 9, 10, 1] // Array of numbers
 
 const addTwo = (n, i, arr) => {
@@ -101,8 +100,4 @@ At the second call of our `forEach()` _higher-order function_, we've directly de
 
 This ought to give you a basic understanding of what _higher-order functions_ and _callback functions_ are.
 
----
-
-#### Thank you for reading, let's connect!
-
-Thank you for reading my blog. Feel free to subscribe to my email newsletter for more content and, let's connect on [Twitter!](https://twitter.com/linASeervi)
+Thank you for reading my blog. Let's connect on [Twitter!](https://twitter.com/linASeervi)

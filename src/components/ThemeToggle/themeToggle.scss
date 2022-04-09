@@ -41,8 +41,8 @@
 }
 
 #theme-toggle svg {
-  width: 2rem;
-  height: 2rem;
+  width: 1.7rem;
+  height: 1.7rem;
   margin: 0;
   fill: var(--clr-foreground);
 }
@@ -58,13 +58,9 @@
   z-index: -1;
 }
 
-.light-theme #theme-toggle::before {
-  animation: pulseToLight 650ms ease-out;
-}
-
-.dark-theme #theme-toggle::before {
-  animation: pulseToDark 650ms ease-out;
-}
+// #theme-toggle:active #theme-toggle::before {
+//   animation: pulse 650ms ease-out infinite;
+// }
 
 #theme-toggle::after {
   content: attr(aria-label);
@@ -73,8 +69,8 @@
   background: var(--clr-foreground);
   width: max-content;
   font-size: 0.6rem;
-  left: -50%;
-  top: 100%;
+  left: -70%;
+  top: 110%;
   margin: 0 auto;
   padding: 0.5em 1em;
   border-radius: 0.125em;
@@ -115,24 +111,7 @@
   transform: rotate(0.5turn);
 }
 
-@keyframes pulseToLight {
-  0% {
-    transform: scale(0);
-    opacity: 0.5;
-  }
-  10% {
-    transform: scale(1);
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulseToDark {
+@keyframes pulse {
   0% {
     transform: scale(0);
     opacity: 0.5;

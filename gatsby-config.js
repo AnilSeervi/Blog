@@ -1,13 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `Anil's Blog`,
-    portfolio: `https://anilseervi.pages.dev`,
+    portfolio: `https://an8.me`,
     author: {
       name: `Anil Seervi`,
       summary: `Personal blog by Anil Seervi. Explaining code in words.`,
     },
     description: `Personal blog of Anil Seervi.`,
-    siteUrl: `https://anil.pages.dev`,
+    siteUrl: `https://anil.gatsbyjs.io`,
     social: {
       twitter: `https://twitter.com/linASeervi`,
       github: `https://github.com/AnilSeervi`,
@@ -47,6 +47,12 @@ module.exports = {
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
+          },
+          {
+            resolve: `gatsby-remark-external-links`,
+            options: {
+              target: '_blank',
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
@@ -119,21 +125,26 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        dir: `ltr`,
+        lang: `en-US`,
         name: `Anil's Blog`,
         short_name: `Anil`,
+        description: `Personal blog of Anil Seervi.`,
         start_url: `/`,
+        id: `/`,
+        orientation: `any`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        theme_color: `#8d2ce2`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
