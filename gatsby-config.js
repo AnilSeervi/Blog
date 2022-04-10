@@ -63,12 +63,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-root-import`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: `ADD YOUR TRACKING ID HERE`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [`G-3PKT9N980P`],
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -131,7 +131,6 @@ module.exports = {
         short_name: `Anil`,
         description: `Personal blog of Anil Seervi.`,
         start_url: `/`,
-        id: `/`,
         orientation: `any`,
         background_color: `#ffffff`,
         // This will impact how browsers show your PWA/website

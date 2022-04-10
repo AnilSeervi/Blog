@@ -4,6 +4,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TimeToRead from "../utils/timeToRead"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -68,25 +69,25 @@ const BlogIndex = ({ data, location }) => {
       </main>
       <footer className="main-footer">
         <div className="social-links">
-          <a
+          <OutboundLink
             href="https://twitter.com/linASeervi/"
             target="_blank"
             rel="noopener noreferrer"
           >
             twitter
-          </a>
+          </OutboundLink>
           &bull;
-          <a
+          <OutboundLink
             href="https://github.com/AnilSeervi/"
             target="_blank"
             rel="noopener noreferrer"
           >
             github
-          </a>
+          </OutboundLink>
         </div>
-        <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
+        <OutboundLink href="/rss.xml" target="_blank" rel="noopener noreferrer">
           rss
-        </a>
+        </OutboundLink>
       </footer>
     </Layout>
   )

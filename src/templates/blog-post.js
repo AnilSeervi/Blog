@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -51,9 +52,9 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <MDXRenderer>{post.body}</MDXRenderer>
           </section>
           <footer>
-            <a href={editUrl} target="_blank" rel="noopener noreferrer">
+            <OutboundLink href={editUrl} target="_blank" rel="noopener noreferrer">
               Edit on GitHub
-            </a>
+            </OutboundLink>
           </footer>
         </article>
       </main>

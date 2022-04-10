@@ -8,6 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -46,13 +47,13 @@ const Bio = () => {
       {author?.name && (
         <p>
           Personal blog by{" "}
-          <a
+          <OutboundLink
             href={data.site.siteMetadata.portfolio}
             target="_blank"
             rel="noopener noreferrer"
           >
             <strong>{author.name}</strong>
-          </a>
+          </OutboundLink>
           .
           <br />
           Lost in the Front-End.
