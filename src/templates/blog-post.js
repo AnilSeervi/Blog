@@ -52,7 +52,11 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
             <MDXRenderer>{post.body}</MDXRenderer>
           </section>
           <footer>
-            <OutboundLink href={editUrl} target="_blank" rel="noopener noreferrer">
+            <OutboundLink
+              href={editUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Edit on GitHub
             </OutboundLink>
           </footer>
