@@ -1,7 +1,7 @@
 ---
 title: Understanding Higher Order Functions in JavaScript
 date: "2021-12-04T15:22:02.000Z"
-description: What are Higher Order Functions? Learn with Examples.
+description: What are <em>Higher-Order Functions</em> in JavaScript? Understand them and how to use them with examples.
 ogThumb: ./og-thumb.png
 ---
 
