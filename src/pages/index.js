@@ -48,7 +48,10 @@ const BlogIndex = ({ data, location }) => {
                     </h2>
                     <span style={{ display: "flex" }}>
                       <small>
-                        {post.frontmatter.date} &#8226; {timeToRead} min read
+                        <time dateTime={post.frontmatter.dateTime}>
+                          {post.frontmatter.date}
+                        </time>{" "}
+                        &#8226; {timeToRead} min read
                       </small>
                       <TimeToRead timeToRead={timeToRead} />
                     </span>
@@ -110,6 +113,7 @@ export const pageQuery = graphql`
         }
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
+          dateTime: date
           title
           description
         }

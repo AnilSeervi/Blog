@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TimeToRead from "../utils/timeToRead"
 import Quotes from "../components/Quotes"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const GITHUB_USERNAME = "AnilSeervi"
 const GITHUB_REPO_NAME = "Blog"
@@ -41,12 +42,20 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
           <header>
             <h1 itemProp="headline">{post.frontmatter.title}</h1>
             <p>
-              {post.frontmatter.date} &#8226; {pageContext.timeToRead} min read
+              <time dateTime={post.frontmatter.dateTime}>
+                {post.frontmatter.date}
+              </time>{" "}
+              &#8226; {pageContext.timeToRead} min read
               <TimeToRead
                 timeToRead={pageContext.timeToRead}
                 style={{ marginBottom: -2, marginLeft: 8 }}
               />
             </p>
+            <GatsbyImage
+              image={post.frontmatter.banner.childImageSharp.gatsbyImageData}
+              className="blog-post_banner"
+              alt={post.frontmatter.description}
+            />
           </header>
           <section>
             <MDXRenderer>{post.body}</MDXRenderer>
@@ -112,10 +121,21 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        dateTime: date
         description
         ogThumb {
           childImageSharp {
             gatsbyImageData(layout: FIXED, height: 630, width: 1200)
+          }
+        }
+        banner: ogThumb {
+          childImageSharp {
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              quality: 100
+              placeholder: BLURRED
+              aspectRatio: 1.91
+            )
           }
         }
       }
