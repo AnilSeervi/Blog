@@ -9,10 +9,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
-"@anilseervi/inspirational-quotes@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@anilseervi/inspirational-quotes/-/inspirational-quotes-0.0.2.tgz#79d2fec8103ccb2d19b95b7fca96ba89e82b153f"
-  integrity sha512-dJJkZqUq42TTi+JdhZhJAzm6ocP9DCyKgcCyZ896F1sCg+SILHJfchZiHN7DU0+VfO2moN3qrl0mXATweA8Wkw==
+"@anilseervi/inspirational-quotes@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@anilseervi/inspirational-quotes/-/inspirational-quotes-0.0.5.tgz#5629cdbca5d601f9be904818be9577ef0751dbeb"
+  integrity sha512-yNnubWH12ltZvCs5Us5hmHFEZwAoGh2PJjtGJ2yRicA1FfUU6NdlGSxDZ8wj0vrF7pW4Ch0ingJdv239/nFBsw==
 
 "@ardatan/aggregate-error@0.0.6":
   version "0.0.6"
