@@ -159,17 +159,29 @@ blockquote > ol {
   list-style-position: inside;
 }
 
+/* Table */
+
 table {
   width: 100%;
   margin-bottom: var(--spacing-8);
   border-collapse: collapse;
   border-spacing: 0.25rem;
+  border: 2px solid var(--color-text);
+  word-break: break-word;
+}
+
+table thead {
+  border: 2px solid var(--color-text);
 }
 
 table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+  padding-inline: 0.5em;
+  border: 1px solid var(--color-accent);
 }
-
+table tbody tr td {
+  padding-inline: 0.5em;
+  border: 1px solid var(--color-accent);
+}
 /* Link */
 
 a {
@@ -197,7 +209,7 @@ a:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--spacing-12);
+  margin-bottom: var(--spacing-10);
 }
 
 .main-heading {
@@ -252,6 +264,10 @@ a:focus {
 
 .blog-post header h1 {
   margin: var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0);
+}
+
+.blog-post_banner {
+  margin-bottom: var(--spacing-10);
 }
 
 .blog-post header p {
