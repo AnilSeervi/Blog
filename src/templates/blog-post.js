@@ -2,18 +2,20 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
-
+import Giscus from "@giscus/react"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TimeToRead from "../utils/timeToRead"
 import Quotes from "../components/Quotes"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { useAppContext } from "../components/Context"
 
 const GITHUB_USERNAME = "AnilSeervi"
 const GITHUB_REPO_NAME = "Blog"
 
 const BlogPostTemplate = ({ data, location, pageContext }) => {
+  const { theme } = useAppContext();
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const siteUrl = data.site.siteMetadata?.siteUrl
@@ -95,6 +97,18 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
       </aside>
       <footer>
         <Quotes />
+        <Giscus
+          mapping="pathname"
+          repo="AnilSeervi/Blog"
+          repoId="R_kgDOGwa8Ng"
+          category="Comments"
+          categoryId="DIC_kwDOGwa8Ns4CPN2m"
+          theme={theme === "dark" ? "dark_dimmed" : "light"}
+          lang="en"
+          reactionsEnabled="1"
+          emitMetadata="1"
+          loading="lazy"
+        />
       </footer>
     </Layout>
   )

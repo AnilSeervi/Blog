@@ -18,9 +18,10 @@
   },
   "dependencies": {
     "@anilseervi/inspirational-quotes": "^0.0.5",
+    "@giscus/react": "^2.0.4",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "gatsby": "^4.12.1",
+    "gatsby": "^4.14.1",
     "gatsby-plugin-feed": "^4.12.1",
     "gatsby-plugin-gatsby-cloud": "^4.12.1",
     "gatsby-plugin-google-gtag": "^4.12.1",
